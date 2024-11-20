@@ -42,13 +42,13 @@ class UserDB(Base):
     email = Column(String(50), unique=True)
     hashed_password = Column(String(100))
 
-def create_token(data: dict, expires_delta: timedelta = None):
+# função para criar token jwt
+def create_token(data: dict):
     to_encode = data.copy()
-    expire = datetime.utcnow() + timedelta(minutes=10)
+    expire = datetime.utcnow() + timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
     to_encode.update({"exp": expire})
-    
     encoded_jwt = jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
-    return encoded_jwt  
+    return encoded_jwt
 
 def verify_token(token: str):
     try:
@@ -78,7 +78,7 @@ def registrar(user: User, db: Session = Depends(get_db)):
     db.commit()
     db.refresh(new_user)
 
-    return {"jwt": create_token({"email": login.email, "nome": db_user.nome})}
+    return {"jwt": create_token({"email": new_user.email, "nome": new_user.nome})}
 
 @app.post("/login")
 def login(login: Login, db: Session = Depends(get_db)):
@@ -86,7 +86,7 @@ def login(login: Login, db: Session = Depends(get_db)):
     if not db_user or not bcrypt.checkpw(login.senha.encode('utf-8'), db_user.hashed_password.encode('utf-8')):
         raise HTTPException(status_code=401, detail="Dados incorretos")
 
-    return {"jwt": create_token({"email": login.email, "nome": db_user.nome})}
+    return {"jwt": create_token({"email": db_user.email, "nome": db_user.nome})}
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
 
