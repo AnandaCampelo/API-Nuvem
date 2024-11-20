@@ -1,8 +1,8 @@
 # Projeto FastAPI com Docker e PostgreSQL
 
-**Documentação**
+**[Documentação](https://anandacampelo.github.io/API-Nuvem/)**
 
-**Vídeo de Execução**
+**[Vídeo de Execução](video_api.webm)**
 
 **[Imagem no Docker Hub](https://hub.docker.com/r/anandajgc/weathercloud)**
 
@@ -22,6 +22,6 @@ cd API-Nuvem
 docker compose up
 ```
 
-*O arquivo `compose.yml` está localizado na raiz do projeto.*
+*O arquivo [`compose.yml`](compose.yml) está localizado na raiz do projeto.*
 
 #### Por *Ananda Campelo*

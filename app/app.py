@@ -42,7 +42,6 @@ class UserDB(Base):
     email = Column(String(50), unique=True)
     hashed_password = Column(String(100))
 
-# função para criar token jwt
 def create_token(data: dict):
     to_encode = data.copy()
     expire = datetime.utcnow() + timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
@@ -72,8 +71,8 @@ def registrar(user: User, db: Session = Depends(get_db)):
     if db_user:
         raise HTTPException(status_code=409, detail="Email já registrado")
 
-    hashed_password = bcrypt.hashpw(user.senha.encode('utf-8'), bcrypt.gensalt())
-    new_user = UserDB(nome=user.nome, email=user.email, hashed_password=hashed_password.decode('utf-8'))
+    hashed_password = bcrypt.hashpw(user.senha.encode('utf-8'), bcrypt.gensalt()).decode('utf-8')
+    new_user = UserDB(nome=user.nome, email=user.email, hashed_password=hashed_password)
     db.add(new_user)
     db.commit()
     db.refresh(new_user)
