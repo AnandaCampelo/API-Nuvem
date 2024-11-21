@@ -119,6 +119,12 @@ Este projeto é uma API RESTful desenvolvida com FastAPI para realizar o cadastr
 
 **2. Configuração:**
 
+- Clone o repositório:
+```sh
+git clone https://github.com/AnandaCampelo/API-Nuvem.git
+cd API-Nuvem
+```
+
 - Crie um arquivo `.env` na raiz do projeto e defina as seguintes variáveis:
 ```dotenv
 SECRET_KEY=sua_senha
