@@ -10,6 +10,8 @@
       
       
       
+        <link rel="next" href="aws/">
+      
       
       <link rel="icon" href="assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.18">
@@ -293,6 +295,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#sumario" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sumário
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#descricao-do-projeto" class="md-nav__link">
     <span class="md-ellipsis">
       Descrição do Projeto
@@ -369,6 +380,26 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="aws/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AWS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -394,6 +425,15 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sumario" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sumário
+    </span>
+  </a>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#descricao-do-projeto" class="md-nav__link">
@@ -483,6 +523,14 @@
 
 
 <h1 id="projeto-de-api-restful-com-fastapi">Projeto de API RESTful com FastAPI</h1>
+<h2 id="sumario">Sumário</h2>
+<ol>
+<li><a href="#descrição-do-projeto">Descrição do Projeto</a></li>
+<li><a href="#funcionalidades-implementadas">Funcionalidades Implementadas</a></li>
+<li><a href="#estrutura-do-código">Estrutura do Código</a></li>
+<li><a href="#como-executar-a-aplicação">Como Executar a Aplicação</a></li>
+<li><a href="#usando-a-api">Usando a API</a></li>
+</ol>
 <h2 id="descricao-do-projeto">Descrição do Projeto</h2>
 <p>Este projeto é uma API RESTful desenvolvida com FastAPI para realizar o cadastro e autenticação de usuários e consultar dados meteorológicos da API OpenWeatherMap. A aplicação é composta por diversas funcionalidades, incluindo registro de usuários, autenticação via JWT (JSON Web Token), e consulta de previsões do tempo.</p>
 <h2 id="funcionalidades-implementadas">Funcionalidades Implementadas</h2>
@@ -592,13 +640,16 @@
 <li>Crie um arquivo <code>.env</code> na raiz do projeto e defina as seguintes variáveis:</li>
 </ul>
 <pre><code class="language-dotenv">SECRET_KEY=sua_senha
-DATABASE_URL=postgresql://user:password@db/dbname
+DATABASE_URL=postgresql://user:password@db:5432/dbname
 OPENWEATHERMAP_API_KEY=sua_chave_api_openweathermap
 POSTGRES_USER=user
 POSTGRES_PASSWORD=password
 POSTGRES_DB=dbname
 </code></pre>
 <p><strong>3. Execute a aplicação com Docker Compose:</strong></p>
+<ul>
+<li>O arquivo compose.yml pode ser encontrado <a href="https://github.com/AnandaCampelo/API-Nuvem/blob/main/compose.yml"><code>aqui</code></a>.</li>
+</ul>
 <pre><code class="language-sh">    docker compose up -d
 </code></pre>
 <ul>
@@ -615,7 +666,7 @@ POSTGRES_DB=dbname
         &quot;nome&quot;: &quot;seu_nome&quot;,
         &quot;email&quot;: &quot;seu_email&quot;,
         &quot;senha&quot;: &quot;sua_senha&quot;
-    }'
+    }' -w '\n'
 </code></pre>
 <ul>
 <li><code>login</code>:</li>
@@ -626,7 +677,7 @@ POSTGRES_DB=dbname
     -d '{
         &quot;email&quot;: &quot;seu_email&quot;,
         &quot;senha&quot;: &quot;sua_senha&quot;
-    }'
+    }' -w '\n'
 </code></pre>
 <ul>
 <li><code>consultar</code>:</li>
@@ -634,26 +685,36 @@ POSTGRES_DB=dbname
 <pre><code class="language-sh">    curl -X GET \
     http://0.0.0.0:8000/consultar \
     -H 'Authorization: Bearer seu_token_jwt_aqui' \
-    -H 'accept: application/json'
+    -H 'accept: application/json' -w '\n'
 </code></pre>
 <h3 id="video-exemplo">Vídeo Exemplo</h3>
-<video width="640" controls>
-  <source src="video_api.webm" type="video/webm">
-</video>
+<div style="text-align: center;">
+  <video width="640" controls>
+    <source src="video_exemplo.webm" type="video/webm">
+  </video>
+</div>
 
 <h3 id="imagens-exemplo">Imagens Exemplo</h3>
 <ul>
 <li>Registrar:</li>
 </ul>
-<p><img src="registrar.png" alt="Registrar" width="640"></p>
+<div style="text-align: center;">
+  <img src="registrar_exemplo.png" alt="Registrar" width="640">
+</div>
+
 <ul>
 <li>Login:</li>
 </ul>
-<p><img src="login.png" alt="Registrar" width="640"></p>
+<div style="text-align: center;">
+  <img src="login_exemplo.png" alt="Registrar" width="640">
+</div>
+
 <ul>
 <li>Consultar:</li>
 </ul>
-<p><img src="consultar.png" alt="Registrar" width="640"></p>
+<div style="text-align: center;">
+  <img src="consultar_exemplo.png" alt="Registrar" width="640">
+</div>
 
 
 

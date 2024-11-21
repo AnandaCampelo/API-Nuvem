@@ -9,21 +9,23 @@
       
       
       
+        <link rel="prev" href="..">
       
       
-      <link rel="icon" href="/assets/images/favicon.png">
+      
+      <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.18">
     
     
       
-        <title>WeatherCloud</title>
+        <title>AWS - WeatherCloud</title>
       
     
     
-      <link rel="stylesheet" href="/assets/stylesheets/main.66ac8b77.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.66ac8b77.min.css">
       
         
-        <link rel="stylesheet" href="/assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -42,7 +44,7 @@
       
     
     
-    <script>__md_scope=new URL("/",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -67,6 +69,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#guia-de-deploy-no-aws-com-eks" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -79,7 +86,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="/." title="WeatherCloud" class="md-header__button md-logo" aria-label="WeatherCloud" data-md-component="logo">
+    <a href=".." title="WeatherCloud" class="md-header__button md-logo" aria-label="WeatherCloud" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -99,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              
+              AWS
             
           </span>
         </div>
@@ -212,7 +219,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="/." title="WeatherCloud" class="md-nav__button md-logo" aria-label="WeatherCloud" data-md-component="logo">
+    <a href=".." title="WeatherCloud" class="md-nav__button md-logo" aria-label="WeatherCloud" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -242,7 +249,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/." class="md-nav__link">
+      <a href=".." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -259,10 +266,30 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="/aws/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    AWS
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -271,6 +298,80 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sumario" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sumário
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pre-requisitos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pré-requisitos
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuracao-da-aws-cli" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuração da AWS CLI
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#criacao-do-cluster-eks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Criação do Cluster EKS
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuracao-do-kubernetes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuração do Kubernetes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deploy-da-aplicacao-e-banco-de-dados" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deploy da Aplicação e Banco de Dados
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -292,6 +393,70 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sumario" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sumário
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pre-requisitos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pré-requisitos
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuracao-da-aws-cli" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuração da AWS CLI
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#criacao-do-cluster-eks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Criação do Cluster EKS
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuracao-do-kubernetes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuração do Kubernetes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deploy-da-aplicacao-e-banco-de-dados" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deploy da Aplicação e Banco de Dados
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -303,8 +468,203 @@
             <div class="md-content" data-md-component="content">
               <article class="md-content__inner md-typeset">
                 
-  <h1>404 - Not found</h1>
+                  
 
+  
+  
+
+
+<h1 id="guia-de-deploy-no-aws-com-eks">Guia de Deploy no AWS com EKS</h1>
+<p>Este guia descreve os passos para configurar e implementar a aplicação no AWS usando o Elastic Kubernetes Service (EKS).</p>
+<p>Esses foram os passos feitos para realizar deploy desta API, que está disponível <a href="http://aabf021d170204a16a8ff69c689a1cf9-1954537924.us-east-1.elb.amazonaws.com/docs#/"><code>aqui</code></a>.</p>
+<h2 id="sumario">Sumário</h2>
+<ol>
+<li><a href="#pré-requisitos">Pré-requisitos</a></li>
+<li><a href="#configuração-da-aws-cli">Configuração da AWS CLI</a></li>
+<li><a href="#criação-do-cluster-eks">Criação do Cluster EKS</a></li>
+<li><a href="#configuração-do-kubernetes">Configuração do Kubernetes</a></li>
+<li><a href="#deploy-da-aplicação-e-banco-de-dados">Deploy da Aplicação e Banco de Dados</a></li>
+</ol>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
+<ul>
+<li>Conta AWS configurada</li>
+<li>AWS CLI instalado</li>
+<li>kubectl instalado</li>
+<li>eksctl instalado</li>
+</ul>
+<h2 id="configuracao-da-aws-cli">Configuração da AWS CLI</h2>
+<p>Rode o comando abaixo e insira as credenciais de usuário:</p>
+<pre><code class="language-sh">aws configure
+</code></pre>
+<ul>
+<li>Access Key ID</li>
+<li>Secret Access Key</li>
+<li>Região que deseja utilizar (i.e: us-east-1)</li>
+<li>Formato de saída padrão: JSON</li>
+</ul>
+<h2 id="criacao-do-cluster-eks">Criação do Cluster EKS</h2>
+<p>Rode o comando abaixo para criar o cluster EKS:</p>
+<pre><code class="language-sh">eksctl create cluster --name cloud-cluster --nodes 2
+</code></pre>
+<ul>
+<li>Este comando cria um cluster EKS com dois nós. </li>
+<li>O processo pode levar vários minutos.</li>
+</ul>
+<h2 id="configuracao-do-kubernetes">Configuração do Kubernetes</h2>
+<p>Rode o comando abaixo para atualizar o <strong>kubeconfig</strong> para usar o novo cluster:</p>
+<pre><code class="language-sh">aws eks update-kubeconfig --name cloud-cluster
+</code></pre>
+<ul>
+<li>Para verificar os nós do cluster:
+    <code>sh
+    kubectl get nodes</code></li>
+</ul>
+<h2 id="deploy-da-aplicacao-e-banco-de-dados">Deploy da Aplicação e Banco de Dados</h2>
+<p><strong>1. Crio o arquivo <code>db-deployment.yml</code>:</strong></p>
+<pre><code class="language-yml">apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: postgres
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: postgres
+  template:
+    metadata:
+      labels:
+        app: postgres
+    spec:
+      containers:
+      - name: postgres
+        image: postgres:13
+        env:
+        - name: POSTGRES_USER
+          value: &quot;user&quot;
+        - name: POSTGRES_PASSWORD
+          value: &quot;password&quot;
+        - name: POSTGRES_DB
+          value: &quot;dbname&quot;
+        ports:
+        - containerPort: 5432
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgres
+spec:
+  ports:
+  - port: 5432
+    targetPort: 5432
+  selector:
+    app: postgres
+</code></pre>
+<p><strong>2. Crie o arquivo <code>app-deployment.yml</code>:</strong></p>
+<pre><code class="language-yml">apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fastapi
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fastapi
+  template:
+    metadata:
+      labels:
+        app: fastapi
+    spec:
+      containers:
+      - name: fastapi
+        image: seu_usuario_dockerhub/sua_imagem:sua_tag
+        ports:
+        - containerPort: 8000
+        env:
+        - name: DATABASE_URL
+          value: &quot;postgresql://user:password@postgres:5432/dbname&quot;
+        - name: SECRET_KEY
+          value: &quot;sua_senha&quot;
+        - name: OPENWEATHERMAP_API_KEY
+          value: &quot;seu_token&quot;
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: fastapi-service
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 80
+      targetPort: 8000
+  selector:
+    app: fastapi
+</code></pre>
+<p><strong>3. Aplique os arquivos de deployment:</strong></p>
+<pre><code class="language-sh">kubectl apply -f db-deployment.yml
+kubectl apply -f app-deployment.yml
+</code></pre>
+<p><strong>4. Verifique os pods:</strong></p>
+<pre><code class="language-sh">kubectl get pods
+</code></pre>
+<pre><code>NAME                        READY   STATUS    RESTARTS   AGE
+fastapi-66dccdb476-rsbfl    1/1     Running   0          5s
+postgres-59898c8667-vww4z   1/1     Running   0          3m8s
+</code></pre>
+<p><strong>5. Verifique os serviços:</strong></p>
+<pre><code class="language-sh">kubectl get services
+</code></pre>
+<pre><code>NAME              TYPE           CLUSTER-IP      EXTERNAL-IP                                                               PORT(S)        AGE
+fastapi-service   LoadBalancer   10.100.58.131   aabf021d170204a16a8ff69c689a1cf9-1954537924.us-east-1.elb.amazonaws.com   80:31152/TCP   9s
+kubernetes        ClusterIP      10.100.0.1      &lt;none&gt;                                                                    443/TCP        5h53m
+postgres          ClusterIP      10.100.16.70    &lt;none&gt;                                                                    5432/TCP       3m13s
+</code></pre>
+<p>Procure pelo <code>EXTERNAL-IP</code> do <code>fastapi-service</code> e acesse a aplicação no navegador (<a href="http://aabf021d170204a16a8ff69c689a1cf9-1954537924.us-east-1.elb.amazonaws.com/docs#/"><code>aqui</code></a>) ou via curl:</p>
+<ul>
+<li><code>registrar</code>:</li>
+</ul>
+<pre><code class="language-sh">  curl -X 'POST' \
+    'http://aabf021d170204a16a8ff69c689a1cf9-1954537924.us-east-1.elb.amazonaws.com/registrar' \
+    -H 'accept: application/json' \
+    -H 'Content-Type: application/json' \
+    -d '{
+    &quot;nome&quot;: &quot;string&quot;,
+    &quot;email&quot;: &quot;string&quot;,
+    &quot;senha&quot;: &quot;string&quot;
+  }' -w '\n'
+</code></pre>
+<ul>
+<li><code>login</code>:</li>
+</ul>
+<pre><code class="language-sh">  curl -X 'POST' \
+    'http://aabf021d170204a16a8ff69c689a1cf9-1954537924.us-east-1.elb.amazonaws.com/login' \
+    -H 'accept: application/json' \
+    -H 'Content-Type: application/json' \
+    -d '{
+    &quot;email&quot;: &quot;string&quot;,
+    &quot;senha&quot;: &quot;string&quot;
+  }' -w '\n'
+</code></pre>
+<ul>
+<li><code>consultar</code>:</li>
+</ul>
+<pre><code class="language-sh">  curl -X GET \
+    http://aabf021d170204a16a8ff69c689a1cf9-1954537924.us-east-1.elb.amazonaws.com/consultar \
+    -H 'Authorization: Bearer seu_token_jwt_aqui' \
+    -H 'accept: application/json' -w '\n'
+</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+                
               </article>
             </div>
           
@@ -338,10 +698,10 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "/", "features": [], "search": "/assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="/assets/javascripts/bundle.3220b9d7.min.js"></script>
+      <script src="../assets/javascripts/bundle.3220b9d7.min.js"></script>
       
     
   </body>
