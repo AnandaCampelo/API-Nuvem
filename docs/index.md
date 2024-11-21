@@ -1,5 +1,13 @@
 # Projeto de API RESTful com FastAPI
 
+## Sumário
+
+1. [Descrição do Projeto](#descrição-do-projeto)
+2. [Funcionalidades Implementadas](#funcionalidades-implementadas)
+3. [Estrutura do Código](#estrutura-do-código)
+4. [Como Executar a Aplicação](#como-executar-a-aplicação)
+5. [Usando a API](#usando-a-api)
+
 ## Descrição do Projeto
 
 Este projeto é uma API RESTful desenvolvida com FastAPI para realizar o cadastro e autenticação de usuários e consultar dados meteorológicos da API OpenWeatherMap. A aplicação é composta por diversas funcionalidades, incluindo registro de usuários, autenticação via JWT (JSON Web Token), e consulta de previsões do tempo.
@@ -114,7 +122,7 @@ Este projeto é uma API RESTful desenvolvida com FastAPI para realizar o cadastr
 - Crie um arquivo `.env` na raiz do projeto e defina as seguintes variáveis:
 ```dotenv
 SECRET_KEY=sua_senha
-DATABASE_URL=postgresql://user:password@db/dbname
+DATABASE_URL=postgresql://user:password@db:5432/dbname
 OPENWEATHERMAP_API_KEY=sua_chave_api_openweathermap
 POSTGRES_USER=user
 POSTGRES_PASSWORD=password
@@ -122,6 +130,9 @@ POSTGRES_DB=dbname
 ```
 
 **3. Execute a aplicação com Docker Compose:**
+
+- O arquivo compose.yml pode ser encontrado [`aqui`](https://github.com/AnandaCampelo/API-Nuvem/blob/main/compose.yml).
+
 ```sh
     docker compose up -d
 ```
@@ -140,7 +151,7 @@ POSTGRES_DB=dbname
         "nome": "seu_nome",
         "email": "seu_email",
         "senha": "sua_senha"
-    }'
+    }' -w '\n'
 ```
 
 - `login`:
@@ -152,7 +163,7 @@ POSTGRES_DB=dbname
     -d '{
         "email": "seu_email",
         "senha": "sua_senha"
-    }'
+    }' -w '\n'
 ```
 
 - `consultar`:
@@ -161,25 +172,33 @@ POSTGRES_DB=dbname
     curl -X GET \
     http://0.0.0.0:8000/consultar \
     -H 'Authorization: Bearer seu_token_jwt_aqui' \
-    -H 'accept: application/json'
+    -H 'accept: application/json' -w '\n'
 ```
 
 ### Vídeo Exemplo
 
-<video width="640" controls>
-  <source src="video_api.webm" type="video/webm">
-</video>
+<div style="text-align: center;">
+  <video width="640" controls>
+    <source src="video_exemplo.webm" type="video/webm">
+  </video>
+</div>
 
 ### Imagens Exemplo
 
 - Registrar:
 
-<img src="registrar.png" alt="Registrar" width="640">
+<div style="text-align: center;">
+  <img src="registrar_exemplo.png" alt="Registrar" width="640">
+</div>
 
 - Login:
 
-<img src="login.png" alt="Registrar" width="640">
+<div style="text-align: center;">
+  <img src="login_exemplo.png" alt="Registrar" width="640">
+</div>
 
 - Consultar:
 
-<img src="consultar.png" alt="Registrar" width="640">
+<div style="text-align: center;">
+  <img src="consultar_exemplo.png" alt="Registrar" width="640">
+</div>

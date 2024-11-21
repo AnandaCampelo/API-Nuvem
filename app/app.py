@@ -24,8 +24,6 @@ Base = declarative_base()
 
 app = FastAPI()
 
-Base.metadata.create_all(bind=engine)
-
 class User(BaseModel):
     nome: str
     email: str
@@ -133,3 +131,5 @@ def consultar(request: Request, token: str = Depends(oauth2_scheme)):
     }
 
     return formatted_data
+
+Base.metadata.create_all(bind=engine)

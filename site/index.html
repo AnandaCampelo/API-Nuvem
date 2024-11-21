@@ -335,14 +335,29 @@
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
+    <nav class="md-nav" aria-label="Usando a API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#video-exemplo" class="md-nav__link">
     <span class="md-ellipsis">
       Vídeo Exemplo
     </span>
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#imagens-exemplo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Imagens Exemplo
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -423,14 +438,29 @@
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
+    <nav class="md-nav" aria-label="Usando a API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#video-exemplo" class="md-nav__link">
     <span class="md-ellipsis">
       Vídeo Exemplo
     </span>
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#imagens-exemplo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Imagens Exemplo
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -459,25 +489,75 @@
 <p><strong>1. Registro de Usuários:</strong></p>
 <ul>
 <li>Endpoint: <code>POST /registrar</code></li>
-<li>Recebe dados do usuário (nome, email, senha).</li>
+<li>Recebe dados do usuário como parâmetros:</li>
+</ul>
+<pre><code class="language-json">{
+    &quot;nome&quot;: &quot;string&quot;,
+    &quot;email&quot;: &quot;string&quot;,
+    &quot;senha&quot;: &quot;string&quot;
+}
+</code></pre>
+<ul>
 <li>Verifica se o email já está registrado.</li>
 <li>Hash da senha utilizando bcrypt.</li>
-<li>Armazena o novo usuário no banco de dados e retorna um token JWT.</li>
+<li>Armazena o novo usuário no banco de dados e retorna um token JWT:</li>
 </ul>
+<pre><code class="language-json">{
+    &quot;jwt&quot;: &quot;string&quot;
+}
+</code></pre>
 <p><strong>2. Autenticação de Usuários:</strong></p>
 <ul>
 <li>Endpoint: <code>POST /login</code></li>
-<li>Recebe email e senha do usuário.</li>
-<li>Verifica as credenciais e autentica o usuário.</li>
-<li>Retorna um token JWT para acesso autorizado.</li>
+<li>Recebe email e senha do usuário como parâmetros:</li>
 </ul>
+<pre><code class="language-json">{
+    &quot;email&quot;: &quot;string&quot;,
+    &quot;senha&quot;: &quot;string&quot;
+}
+</code></pre>
+<ul>
+<li>Verifica as credenciais e autentica o usuário.</li>
+<li>Retorna um token JWT para acesso autorizado:</li>
+</ul>
+<pre><code class="language-json">{
+    &quot;jwt&quot;: &quot;string&quot;
+}
+</code></pre>
 <p><strong>3. Consulta de Previsão do Tempo:</strong></p>
 <ul>
 <li>Endpoint: <code>GET /consultar</code></li>
-<li>Requer um token JWT válido.</li>
-<li>Faz uma requisição à API OpenWeatherMap utilizando as coordenadas especificadas.</li>
-<li>Formata e retorna os dados da previsão do tempo em um formato amigável.</li>
+<li>Requer um token JWT válido:</li>
 </ul>
+<pre><code class="language-json">    Authorization: Bearer token_de_usuário
+</code></pre>
+<ul>
+<li>Faz uma requisição à API OpenWeatherMap utilizando as coordenadas especificadas.</li>
+<li>Formata e retorna os dados da previsão do tempo:</li>
+</ul>
+<pre><code class="language-json">{
+    &quot;city&quot;: &quot;string&quot;,
+    &quot;country&quot;: &quot;string&quot;,
+    &quot;forecast&quot;: {
+        &quot;time&quot;: &quot;string&quot;,
+        &quot;temperature&quot;: &quot;number&quot;,
+        &quot;feels_like&quot;: &quot;number&quot;,
+        &quot;temp_min&quot;: &quot;number&quot;,
+        &quot;temp_max&quot;: &quot;number&quot;,
+        &quot;pressure&quot;: &quot;number&quot;,
+        &quot;humidity&quot;: &quot;number&quot;,
+        &quot;weather&quot;: &quot;string&quot;,
+        &quot;weather_icon&quot;: &quot;string&quot;,
+        &quot;clouds&quot;: &quot;number&quot;,
+        &quot;wind_speed&quot;: &quot;number&quot;,
+        &quot;wind_deg&quot;: &quot;number&quot;,
+        &quot;visibility&quot;: &quot;number&quot;,
+        &quot;pop&quot;: &quot;number&quot;,
+        &quot;rain&quot;: &quot;number&quot;,
+        &quot;snow&quot;: &quot;number&quot;
+    }
+}
+</code></pre>
 <h2 id="estrutura-do-codigo">Estrutura do Código</h2>
 <p><strong>1. Importações e Configurações:</strong></p>
 <ul>
@@ -509,20 +589,20 @@
 </ul>
 <p><strong>2. Configuração:</strong></p>
 <ul>
-<li>Crie um arquivo <code>.env</code> na raiz do projeto e defina as seguintes variáveis:
-    <code>dotenv
-    SECRET_KEY=sua_senha
-    DATABASE_URL=postgresql://user:password@db/dbname
-    OPENWEATHERMAP_API_KEY=sua_chave_api_openweathermap
-    POSTGRES_USER=user
-    POSTGRES_PASSWORD=password
-    POSTGRES_DB=dbname</code></li>
+<li>Crie um arquivo <code>.env</code> na raiz do projeto e defina as seguintes variáveis:</li>
 </ul>
+<pre><code class="language-dotenv">SECRET_KEY=sua_senha
+DATABASE_URL=postgresql://user:password@db/dbname
+OPENWEATHERMAP_API_KEY=sua_chave_api_openweathermap
+POSTGRES_USER=user
+POSTGRES_PASSWORD=password
+POSTGRES_DB=dbname
+</code></pre>
 <p><strong>3. Execute a aplicação com Docker Compose:</strong></p>
 <pre><code class="language-sh">    docker compose up -d
 </code></pre>
 <ul>
-<li>Você pode acessar a documentação em <a href="http://0.0.0.0:8000/docs"><code>http://0.0.0.0:8000/docs</code></a></li>
+<li>Após isso você pode acessar a documentação em <a href="http://0.0.0.0:8000/docs"><code>http://0.0.0.0:8000/docs</code></a></li>
 </ul>
 <h2 id="usando-a-api">Usando a API</h2>
 <ul>
@@ -556,10 +636,24 @@
     -H 'Authorization: Bearer seu_token_jwt_aqui' \
     -H 'accept: application/json'
 </code></pre>
-<h2 id="video-exemplo">Vídeo Exemplo</h2>
-<video width="320" height="240" controls>
+<h3 id="video-exemplo">Vídeo Exemplo</h3>
+<video width="640" controls>
   <source src="video_api.webm" type="video/webm">
 </video>
+
+<h3 id="imagens-exemplo">Imagens Exemplo</h3>
+<ul>
+<li>Registrar:</li>
+</ul>
+<p><img src="registrar.png" alt="Registrar" width="640"></p>
+<ul>
+<li>Login:</li>
+</ul>
+<p><img src="login.png" alt="Registrar" width="640"></p>
+<ul>
+<li>Consultar:</li>
+</ul>
+<p><img src="consultar.png" alt="Registrar" width="640"></p>
 
 
 

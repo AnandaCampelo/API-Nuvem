@@ -1,3 +1,6 @@
 .env
 __pycache__/
 app/__pycache__/
+app-deployment.yml
+db-deployment.yml
+postgres-pvc.yml
