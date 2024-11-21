@@ -119,7 +119,7 @@ spec:
     spec:
       containers:
       - name: fastapi
-        image: seu_usuario_dockerhub/sua_imagem:sua_tag
+        image: anandajgc/weathercloud:latest
         ports:
         - containerPort: 8000
         env:
